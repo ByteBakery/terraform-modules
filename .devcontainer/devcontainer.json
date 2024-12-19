@@ -1,6 +1,6 @@
 {
   "name": "Terraform Dev Container",
-  "image": "mcr.microsoft.com/devcontainers/base:ubuntu", 
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
   "features": {
     "ghcr.io/devcontainers/features/docker-in-docker:2": {}
   },
@@ -12,5 +12,11 @@
       ]
     }
   },
-  "postCreateCommand": "terraform --version"
+  "settings": {
+    "terminal.integrated.shell.linux": "/bin/bash"
+  },
+  "mounts": [
+    "source=${localEnv:HOME}/.ssh,target=/root/.ssh,type=bind,consistency=cached"
+  ],
+  "postCreateCommand": "terraform --version && git config --global user.name 'IbrahimAbouElazab' && git config --global user.email 'ibrahim.abou-elazab@hotmail.com'"
 }
