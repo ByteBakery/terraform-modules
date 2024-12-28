@@ -1,6 +1,8 @@
 {
   "name": "Terraform Dev Container",
-  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+  "build": {
+    "dockerfile": "./terraform_dev"
+  },
   "features": {
     "ghcr.io/devcontainers/features/docker-in-docker:2": {}
   },
